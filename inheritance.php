@@ -96,3 +96,75 @@ public $color;
 	}
 $blackwidow = new blackWidow("female", "big", "black with a red hourglass");
 print "<p>A female black widow is larger than the males and are the ones who are " . $blackwidow->spider1();
+
+/*inheritance part2*/
+class 	Reptile{
+	public $name;
+	public $color;
+	public $weight;
+	public $size;
+
+	function __construct($name, $color, $weight, $size) {
+		$this->name=$name;
+		$this->color=$color;
+		$this->weight=$weight;
+		$this->size=$size;
+	}
+	function getReptile(){
+		return "this is a " . $this->name;
+	}
+}
+class komodoDragon extends Reptile{
+	function __construct($name, $color, $weight, $size, $venomous){
+		parent::__construct($name, $color, $weight, $size);
+		$this->venomous=$venomous;
+
+	}
+	function greet(){
+		return $this->venomous;
+	}
+}
+class Iguana extends Reptile{
+	function __construct($name, $color, $weight, $size, $fangs){
+	parent::__construct($name, $color, $weight, $size);
+	$this->fangs=$fangs;
+	}
+function snake1(){
+	return $this->fangs;
+	}
+}
+class Chameleon extends Reptile{
+	function __construct($name, $color, $weight, $size, $camoflage){
+		parent::__construct($name, $color, $weight, $size);
+		$this->camoflage=$camoflage;
+	}
+	function chamo(){
+		return $this->camoflage;
+	}
+}
+$komododragon = new komodoDragon("komodo dragon", "green", 123, 50, "true");
+print "<p> is a komododragon venomous? " . $komododragon->greet();
+/*example 2*/
+class Rodent {
+	public $type;
+	public $color;
+	public $gender;
+
+	function __construct($type, $color, $gender){
+		$this->type=$type;
+		$this->color=$color;
+		$this->gender=$gender;
+	}
+	function getRodent(){
+		return "this is a " . $this->type;
+	}
+}
+class Squirrel extends Rodent{
+	function __construct($type, $color, $gender, $size){
+		parent::__construct($type, $color, $gender);
+		$this
+
+	}
+
+
+}
