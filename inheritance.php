@@ -86,7 +86,7 @@ public $color;
 	}
 	class Recluse extends Spider{
 		function spider2(){
-			return $this->type;
+			return $this->type . " is " . $this->size . " usually colored " . $this->color;
 		}
 	}
 	class Tarantula{
@@ -97,7 +97,10 @@ public $color;
 $blackwidow = new blackWidow("female", "big", "black with a red hourglass");
 print "<p>A female black widow is larger than the males and are the ones who are " . $blackwidow->spider1();
 
-/*inheritance part2*/
+$recluse = new Recluse("Recluse spider", "small thin body", "light brown");
+print "<p> A " . $recluse->spider2();
+
+/*inheritance part2*/ echo "<p> Inheritance part2";
 class 	Reptile{
 	public $name;
 	public $color;
@@ -120,8 +123,8 @@ class komodoDragon extends Reptile{
 		$this->venomous=$venomous;
 
 	}
-	function greet(){
-		return $this->venomous;
+	function kdragon(){
+		return $this->weight;
 	}
 }
 class Iguana extends Reptile{
@@ -142,8 +145,8 @@ class Chameleon extends Reptile{
 		return $this->camoflage;
 	}
 }
-$komododragon = new komodoDragon("komodo dragon", "green", 123, 50, "true");
-print "<p> is a komododragon venomous? " . $komododragon->greet();
+$komododragon = new komodoDragon("komodo dragon", "green", "yes", 50, "yes");
+print "<p> is a komododragon heavy? " . $komododragon->kdragon();
 /*example 2*/
 class Rodent {
 	public $type;
@@ -162,9 +165,25 @@ class Rodent {
 class Squirrel extends Rodent{
 	function __construct($type, $color, $gender, $size){
 		parent::__construct($type, $color, $gender);
-		$this
+
+		$this->type=$type;
 
 	}
-
-
+	function rodent1(){
+		return $this->type;
+	} 
 }
+class Sugarglider extends Rodent{
+	function __construct($type, $color, $gender, $cuteness){
+		parent::__construct($type, $color, $gender);
+
+		$this->cuteness=$cuteness;
+	}
+	function rodent2(){
+		return $this->type . " is a rodent whose " . $this->color . " fur and tiny body make its cuteness " . $this->cuteness;
+	}
+}
+$sugarglider= new Sugarglider("sugar glider", "gray", "female", "over 9000.");
+print "<p> A " . $sugarglider->rodent2();
+$squirrel = new Squirrel("Squirrel", "varies", "does it matter", 190);
+print "<p> A " . $squirrel->rodent1();
